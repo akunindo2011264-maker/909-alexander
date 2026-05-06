@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="fade-in">
+        <h1>👤 Profile</h1>
+        <p class="text-muted">Kelola akun & informasi pribadi kamu</p>
+    </div>
+
+    <div class="profile-header glass-card mt-2 fade-in fade-in-delay-1">
+        <div class="profile-avatar-section">
+            <div class="profile-avatar-wrapper">
+                <img src="assets/images/default-avatar.png" alt="Avatar" id="profileAvatar" class="profile-avatar">
+                <button class="profile-avatar-edit" id="avatarEditBtn">📷</button>
+            </div>
+            <div class="profile-info">
+                <h2 id="profileUsername">Username</h2>
+                <span class="badge badge-member" id="profileRoleBadge">member</span>
+                <p class="text-muted mt-1" id="profileBio">Belum ada bio</p>
+            </div>
+        </div>
+        <div class="profile-stats">
+            <div class="profile-stat">
+                <span class="profile-stat-value" id="profileUploadCount">0</span>
+                <span class="profile-stat-label">Upload</span>
+            </div>
+            <div class="profile-stat">
+                <span class="profile-stat-value" id="profileJoinDate">-</span>
+                <span class="profile-stat-label">Bergabung</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card mt-2 fade-in fade-in-delay-2">
+        <h3>✏️ Edit Profile</h3>
+        <form id="profileForm" class="mt-2">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" class="form-input" id="editUsername" required>
+            </div>
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea name="bio" class="form-input" rows="3" id="editBio" placeholder="Ceritakan tentang dirimu..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Nomor HP</label>
+                <input type="tel" name="phone" class="form-input" id="editPhone" placeholder="0812xxxx">
+            </div>
+            <div class="form-group">
+                <label>Password Baru</label>
+                <input type="password" name="password" class="form-input" placeholder="Kosongkan jika tidak ingin ganti">
+            </div>
+            <div class="form-group">
+                <label>URL Foto Profile</label>
+                <input type="url" name="avatar" class="form-input" id="editAvatar" placeholder="https://...">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">💾 Simpan Perubahan</button>
+        </form>
+    </div>
+
+    <div class="glass-card mt-2 fade-in fade-in-delay-3">
+        <h3>📊 Statistik Akun</h3>
+        <div class="stats-grid mt-2">
+            <div class="stat-card">
+                <h3>Total Upload</h3>
+                <div class="value" id="statTotalUpload">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Foto</h3>
+                <div class="value" id="statPhotos">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Video</h3>
+                <div class="value" id="statVideos">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Role</h3>
+                <div class="value" id="statRole" style="font-size:1rem;text-transform:uppercase;">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card mt-2 fade-in fade-in-delay-4">
+        <h3>🔒 Keamanan</h3>
+        <p class="text-muted text-sm mt-1">Password dienkripsi. Jangan bagikan password ke siapa pun.</p>
+        <button class="btn btn-outline btn-block mt-2" onclick="Auth.logout()">🚪 Keluar dari Akun</button>
+    </div>
+</div>

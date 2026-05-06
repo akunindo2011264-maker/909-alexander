@@ -1,0 +1,63 @@
+<div class="chat-page">
+    <div class="chat-sidebar" id="chatSidebar">
+        <div class="chat-tabs">
+            <button class="chat-tab active" data-tab="channels">📡 Saluran</button>
+            <button class="chat-tab" data-tab="groups">👥 Grup</button>
+            <button class="chat-tab" data-tab="private">💬 Pribadi</button>
+        </div>
+        
+        <div class="chat-search">
+            <input type="text" class="form-input" placeholder="🔍 Cari percakapan..." id="chatSearch">
+        </div>
+        
+        <div class="chat-list" id="chatList">
+            <div class="chat-list-item active">
+                <div class="chat-list-icon">📡</div>
+                <div class="chat-list-info">
+                    <div class="chat-list-name">Saluran Umum</div>
+                    <div class="chat-list-preview">Pengumuman & info dari admin</div>
+                </div>
+                <div class="chat-list-time">12:00</div>
+            </div>
+            <div class="chat-list-item">
+                <div class="chat-list-icon">🎨</div>
+                <div class="chat-list-info">
+                    <div class="chat-list-name">Saluran Kreatif</div>
+                    <div class="chat-list-preview">Diskusi konten & ide</div>
+                </div>
+                <div class="chat-list-time">11:30</div>
+            </div>
+            <div class="chat-list-item">
+                <div class="chat-list-icon">👥</div>
+                <div class="chat-list-info">
+                    <div class="chat-list-name">Grup Kolaborasi</div>
+                    <div class="chat-list-preview">Project bareng, diskusi seru</div>
+                </div>
+                <div class="chat-list-time">Kemarin</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chat-main" id="chatMain">
+        <div class="chat-main-header">
+            <button class="btn btn-sm btn-outline chat-back-btn hidden" id="chatBackBtn">← Kembali</button>
+            <div>
+                <h3 id="chatTitle">📡 Saluran Umum</h3>
+                <p class="text-muted text-sm" id="chatSubtitle">Semua member dapat melihat</p>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-empty">
+                <span style="font-size:3rem;">💬</span>
+                <p>Pilih percakapan untuk memulai</p>
+                <p class="text-muted text-sm">Atau mulai percakapan baru</p>
+            </div>
+        </div>
+        
+        <div class="chat-input-area" id="chatInputArea">
+            <input type="text" id="chatInput" class="form-input" placeholder="Ketik pesan...">
+            <button class="btn btn-primary" id="chatSendBtn">Kirim</button>
+        </div>
+    </div>
+</div>

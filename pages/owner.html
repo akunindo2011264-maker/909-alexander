@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="fade-in">
+        <h1>👑 Owner Panel</h1>
+        <p class="text-muted">Manajemen akun, role, dan musik platform</p>
+    </div>
+
+    <div class="grid-2 mt-2">
+        <div class="glass-card fade-in fade-in-delay-1">
+            <h3>➕ Tambah Akun Baru</h3>
+            <form id="addUserForm" class="mt-2">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-input" placeholder="Username baru" required>
+                </div>
+                <div class="form-group">
+                    <label>Nomor HP</label>
+                    <input type="tel" name="phone" class="form-input" placeholder="0812xxxx" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-input" placeholder="Min. 6 karakter" required>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select name="role" class="form-input">
+                        <option value="member">Member</option>
+                        <option value="admin">Admin</option>
+                        <option value="owner">Owner</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Tambah Akun</button>
+            </form>
+        </div>
+
+        <div class="glass-card fade-in fade-in-delay-2">
+            <h3>🔄 Ubah Role Akun</h3>
+            <form id="changeRoleForm" class="mt-2">
+                <div class="form-group">
+                    <label>Username Target</label>
+                    <input type="text" name="targetUser" class="form-input" placeholder="Username yang akan diubah" required>
+                </div>
+                <div class="form-group">
+                    <label>Role Baru</label>
+                    <select name="newRole" class="form-input">
+                        <option value="member">Member</option>
+                        <option value="admin">Admin</option>
+                        <option value="owner">Owner</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Ubah Role</button>
+            </form>
+        </div>
+
+        <div class="glass-card fade-in fade-in-delay-3">
+            <h3>🎵 Tambah Musik</h3>
+            <form id="addMusicForm" class="mt-2">
+                <div class="form-group">
+                    <label>Judul Musik</label>
+                    <input type="text" name="title" class="form-input" placeholder="Judul lagu" required>
+                </div>
+                <div class="form-group">
+                    <label>URL Musik (MP3)</label>
+                    <input type="url" name="url" class="form-input" placeholder="https://... .mp3" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Tambah Musik</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="glass-card mt-2 fade-in fade-in-delay-4">
+        <h3>👥 Daftar Semua Akun</h3>
+        <div class="table-wrapper mt-2">
+            <table class="data-table" id="userTable">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Phone</th>
+                        <th>Bergabung</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="5" class="text-center text-muted">Memuat data...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="glass-card mt-2 fade-in fade-in-delay-4">
+        <h3>🎵 Daftar Musik</h3>
+        <div id="ownerMusicList" class="mt-2">
+            <p class="text-muted">Memuat daftar musik...</p>
+        </div>
+    </div>
+</div>

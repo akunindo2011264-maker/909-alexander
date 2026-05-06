@@ -1,0 +1,34 @@
+{
+  "uploads": [
+    {
+      "id": "1",
+      "name": "Sunset di Pantai",
+      "type": "photo",
+      "uploader": "member",
+      "uploaderId": "3",
+      "path": "uploads/photos/logo-1.jpg",
+      "timestamp": "2026-05-06T10:30:00.000Z",
+      "size": 2048576
+    },
+    {
+      "id": "2",
+      "name": "Behind The Scenes",
+      "type": "video",
+      "uploader": "admin",
+      "uploaderId": "2",
+      "path": "uploads/videos/gameplay-1.mp4",
+      "timestamp": "2026-05-06T11:00:00.000Z",
+      "size": 15728640
+    },
+    {
+      "id": "3",
+      "name": "Malam Kota",
+      "type": "photo",
+      "uploader": "owner",
+      "uploaderId": "1",
+      "path": "uploads/photos/logo-2.jpg",
+      "timestamp": "2026-05-06T12:15:00.000Z",
+      "size": 3145728
+    }
+  ]
+}

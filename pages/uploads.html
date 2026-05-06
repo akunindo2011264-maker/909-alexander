@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="fade-in">
+        <h1>📤 Upload Konten</h1>
+        <p class="text-muted">Bagikan foto atau video untuk kolaborasi bersama</p>
+    </div>
+
+    <div class="glass-card mt-2 fade-in fade-in-delay-1">
+        <form id="uploadForm">
+            <div class="form-group">
+                <label>Nama / Judul Konten</label>
+                <input type="text" name="name" class="form-input" placeholder="Beri judul keren..." required>
+            </div>
+
+            <div class="form-group">
+                <label>Tipe Konten</label>
+                <select name="type" class="form-input" required>
+                    <option value="photo">📷 Foto</option>
+                    <option value="video">🎬 Video</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Pilih File</label>
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-zone-content">
+                        <span class="upload-zone-icon">📁</span>
+                        <p>Ketuk untuk memilih file</p>
+                        <p class="text-muted text-sm">Foto: JPG / PNG / WebP &bull; Video: MP4 / WebM</p>
+                        <p class="text-muted text-sm">Maksimal 100MB</p>
+                    </div>
+                    <input type="file" name="file" id="fileInput" accept="image/*,video/*" required>
+                </div>
+                <p class="text-muted text-sm mt-1" id="fileName">Belum ada file dipilih</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+                🚀 Upload Sekarang
+            </button>
+        </form>
+    </div>
+
+    <div class="mt-3 fade-in fade-in-delay-2">
+        <div class="flex-between mb-2">
+            <h2>📂 Upload Kamu</h2>
+            <span class="text-muted text-sm" id="uploadCount">0 konten</span>
+        </div>
+        <div class="grid-3" id="myUploadsGrid">
+            <div class="glass-card text-center">
+                <p class="text-muted">Belum ada upload dari kamu.</p>
+                <p class="text-muted text-sm mt-1">Upload foto atau video pertamamu sekarang!</p>
+            </div>
+        </div>
+    </div>
+</div>

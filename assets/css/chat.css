@@ -1,0 +1,127 @@
+.chat-page {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 56px - 32px);
+    height: calc(100dvh - 56px - 32px);
+}
+
+.chat-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 4px;
+}
+
+.chat-tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-muted);
+    border: none;
+    background: transparent;
+    font-family: var(--font);
+}
+
+.chat-tab.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.chat-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chat-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.chat-list-item:hover,
+.chat-list-item:active {
+    background: var(--bg-card);
+    border-color: var(--border);
+}
+
+.chat-list-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.chat-list-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-list-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.chat-list-preview {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-list-time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 0;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 8px;
+    padding: 8px 0;
+    border-top: 1px solid var(--border);
+}
+
+.chat-input-area input {
+    flex: 1;
+}
+
+.chat-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    cursor: pointer;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    font-family: var(--font);
+}

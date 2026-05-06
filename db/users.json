@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "all",
+      "phone": "628135482093",
+      "password": "all11264",
+      "role": "owner",
+      "avatar": "assets/images/default-avatar.png",
+      "bio": "Pemilik 909 - Alexander",
+      "createdAt": "2026-05-06T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "username": "Cherly",
+      "phone": "628987740018",
+      "password": "cantik123",
+      "role": "owner",
+      "avatar": "assets/images/default-avatar.png",
+      "bio": "Owner 909 - Alexander",
+      "createdAt": "2026-05-06T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "username": "admin",
+      "phone": "08123456781",
+      "password": "admin123",
+      "role": "admin",
+      "avatar": "assets/images/default-avatar.png",
+      "bio": "Admin 909 - Alexander",
+      "createdAt": "2026-05-06T00:00:00.000Z"
+    },
+        {
+      "id": "4",
+      "username": "member",
+      "phone": "08123456781",
+      "password": "member123",
+      "role": "member",
+      "avatar": "assets/images/default-avatar.png",
+      "bio": "Member 909 - Alexander",
+      "createdAt": "2026-05-06T00:00:00.000Z"
+    }
+  ]
+}
