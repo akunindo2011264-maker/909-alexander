@@ -1,11 +1,5 @@
-const DB_PREFIX = '909_db_';
-const FILES = {
-    users: 'db/users.json',
-    uploads: 'db/uploads.json',
-    messages: 'db/messages.json',
-    music: 'db/music.json',
-    announcements: 'db/announcements.json'
-};
+const COLLECTIONS = ['users', 'uploads', 'messages', 'music', 'announcements'];
+const API_URL = '/api/gist';
 
 const data = {};
 let loaded = false;
@@ -18,27 +12,30 @@ function defaultData(key) {
 export const DB = {
     async load() {
         if (loaded) return;
-        for (const [key, file] of Object.entries(FILES)) {
-            const cached = localStorage.getItem(DB_PREFIX + key);
-            if (cached) {
-                try {
-                    const parsed = JSON.parse(cached);
-                    data[key] = parsed[key] !== undefined ? parsed[key] : parsed;
-                    continue;
-                } catch { /* ignore parse errors, fetch from file */ }
-            }
-            try {
-                const res = await fetch(file);
-                if (res.ok) {
-                    const json = await res.json();
-                    data[key] = json[key] !== undefined ? json[key] : json;
-                    const wrapper = {};
-                    wrapper[key] = data[key];
-                    localStorage.setItem(DB_PREFIX + key, JSON.stringify(wrapper));
-                } else {
+        try {
+            const res = await fetch(API_URL);
+            if (res.ok) {
+                const gist = await res.json();
+                for (const key of COLLECTIONS) {
+                    const file = gist.files[`${key}.json`];
+                    if (file && file.content) {
+                        try {
+                            const parsed = JSON.parse(file.content);
+                            data[key] = parsed[key] !== undefined ? parsed[key] : parsed;
+                        } catch {
+                            data[key] = defaultData(key);
+                        }
+                    } else {
+                        data[key] = defaultData(key);
+                    }
+                }
+            } else {
+                for (const key of COLLECTIONS) {
                     data[key] = defaultData(key);
                 }
-            } catch {
+            }
+        } catch {
+            for (const key of COLLECTIONS) {
                 data[key] = defaultData(key);
             }
         }
@@ -53,6 +50,26 @@ export const DB = {
         data[key] = value;
         const wrapper = {};
         wrapper[key] = value;
-        localStorage.setItem(DB_PREFIX + key, JSON.stringify(wrapper));
+        const payload = {
+            files: {
+                [`${key}.json`]: {
+                    content: JSON.stringify(wrapper, null, 2)
+                }
+            }
+        };
+        try {
+            await fetch(API_URL, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        } catch (err) {
+            console.error(`Gagal menyimpan ${key} ke Gist:`, err);
+        }
+    },
+
+    async reload() {
+        loaded = false;
+        await this.load();
     }
 };
