@@ -1,7 +1,10 @@
+import { DB } from './sync.js';
+
 export const ProfileManager = {
-    getUserStats(userId) {
-        const uploads = JSON.parse(localStorage.getItem('909_db_uploads') || '{"uploads":[]}');
-        const userUploads = uploads.uploads.filter(u => u.uploaderId === userId);
+    async getUserStats(userId) {
+        await DB.load();
+        const uploads = DB.get('uploads');
+        const userUploads = uploads.filter(u => u.uploaderId === userId);
         return {
             total: userUploads.length,
             photos: userUploads.filter(u => u.type === 'photo').length,
@@ -9,25 +12,28 @@ export const ProfileManager = {
         };
     },
 
-    getUserById(userId) {
-        const db = JSON.parse(localStorage.getItem('909_db_users') || '{"users":[]}');
-        const user = db.users.find(u => u.id === userId);
+    async getUserById(userId) {
+        await DB.load();
+        const users = DB.get('users');
+        const user = users.find(u => u.id === userId);
         if (!user) return null;
         const { password, ...safeUser } = user;
         return safeUser;
     },
 
-    getAllUsers() {
-        const db = JSON.parse(localStorage.getItem('909_db_users') || '{"users":[]}');
-        return db.users.map(({ password, ...user }) => user);
+    async getAllUsers() {
+        await DB.load();
+        const users = DB.get('users');
+        return users.map(({ password, ...user }) => user);
     },
 
-    updateAvatar(userId, avatarUrl) {
-        const db = JSON.parse(localStorage.getItem('909_db_users') || '{"users":[]}');
-        const idx = db.users.findIndex(u => u.id === userId);
+    async updateAvatar(userId, avatarUrl) {
+        await DB.load();
+        const users = DB.get('users');
+        const idx = users.findIndex(u => u.id === userId);
         if (idx !== -1) {
-            db.users[idx].avatar = avatarUrl;
-            localStorage.setItem('909_db_users', JSON.stringify(db));
+            users[idx].avatar = avatarUrl;
+            await DB.update('users', users);
             return true;
         }
         return false;
