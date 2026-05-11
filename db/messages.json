@@ -1,3 +1,7 @@
 {
-  "messages": []
+  "messages": {
+    "channels": {},
+    "groups": {},
+    "private": {}
+  }
 }

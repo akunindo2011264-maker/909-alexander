@@ -478,6 +478,19 @@ class App {
                     </td>
                 </tr>
             `).join('');
+
+            userTable.querySelectorAll('.delete-user-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    if (confirm('Hapus akun ini?')) {
+                        await DB.load();
+                        const users = DB.get('users');
+                        const filtered = users.filter(u => u.id !== btn.dataset.id);
+                        await DB.update('users', filtered);
+                        showToast('Akun berhasil dihapus', 'info');
+                        loadUsers();
+                    }
+                });
+            });
         };
 
         const loadOwnerMusic = async () => {
@@ -887,7 +900,7 @@ class App {
         const statVideos = container.querySelector('#statVideos');
         const statRole = container.querySelector('#statRole');
 
-        const stats = await ProfileManager.getStats(user.id);
+        const stats = await ProfileManager.getUserStats(user.id);
 
         if (profileAvatar) profileAvatar.src = user.avatar || 'assets/images/default-avatar.png';
         if (profileUsername) profileUsername.textContent = user.username;
@@ -1054,6 +1067,7 @@ function showToast(msg, type = 'info') {
 }
 
 window.showToast = showToast;
+window.Auth = Auth;
 
 document.addEventListener('DOMContentLoaded', async () => {
     await DB.load();

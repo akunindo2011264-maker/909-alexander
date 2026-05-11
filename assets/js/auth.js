@@ -70,6 +70,12 @@ export const Auth = {
     return { success: true, user: safeUser };
   },
 
+  hasRole(roles) {
+    const user = this.getCurrentUser();
+    if (!user) return false;
+    return roles.includes(user.role);
+  },
+
   async updateProfile(updates) {
     const user = this.getCurrentUser();
     if (!user) return { success: false, message: 'Tidak ada user aktif.' };
